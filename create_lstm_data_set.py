@@ -43,7 +43,7 @@ def get_list_of_strings():
 		#print(len(dictionary))
 
 		#new_dictionary = sorted(dictionary)
-		new_dictionary = dictionary[:100]
+		new_dictionary = dictionary
 
 		for l in new_dictionary:
 			y = str(l).replace('"','').strip().lower()
@@ -242,19 +242,19 @@ print("length g_features " + str(len(g_features)))
 
 print("length g_labels " + str(len(g_labels)))
 
-X_train = np.array(g_features[:200])#np.array(g_features[:200])# np.array(g_features[:1473394]) #
+X_train = np.array(g_features[:80000])#np.array(g_features[:200])# np.array(g_features[:1473394]) #
 
-X_valid = np.array(g_features[200:500]) # np.array(g_features[1473394:]) #
+X_valid = np.array(g_features[80000:]) # np.array(g_features[1473394:]) #
 
 
 g_idx_word = get_sentence_from_index(g_tokenizer, g_features, 8, 0)
 
 print("features 1 " + str(g_features[0]))
 
-g_num_words, g_label_array = one_hot_encode_features(g_idx_word, g_features[:500], g_labels[:500], 0)
+g_num_words, g_label_array = one_hot_encode_features(g_idx_word, g_features[:80000], g_labels[:80000], 0)
 
-y_train = np.array(g_label_array[:200]) #np.array(g_label_array[:1473394])# np.array(g_label_array[:200])#
-y_valid = np.array(g_label_array[200: 500]) #np.array(g_label_array[1473394:])# np.array(g_label_array[200: 400])#
+y_train = np.array(g_label_array[:80000]) #np.array(g_label_array[:1473394])# np.array(g_label_array[:200])#
+y_valid = np.array(g_label_array[80000:]) #np.array(g_label_array[1473394:])# np.array(g_label_array[200: 400])#
 
 
 g_embedding_matrix = make_embedding_matrix(g_num_words, g_idx_word)
