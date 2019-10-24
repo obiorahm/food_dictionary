@@ -242,9 +242,9 @@ print("length g_features " + str(len(g_features)))
 
 print("length g_labels " + str(len(g_labels)))
 
-X_train = np.array(g_features[:80000])#np.array(g_features[:200])# np.array(g_features[:1473394]) #
+X_train = np.array(g_features[:60000])#np.array(g_features[:200])# np.array(g_features[:1473394]) #
 
-X_valid = np.array(g_features[80000:]) # np.array(g_features[1473394:]) #
+X_valid = np.array(g_features[60000:80000]) # np.array(g_features[1473394:]) #
 
 
 g_idx_word = get_sentence_from_index(g_tokenizer, g_features, 8, 0)
@@ -253,8 +253,8 @@ print("features 1 " + str(g_features[0]))
 
 g_num_words, g_label_array = one_hot_encode_features(g_idx_word, g_features[:80000], g_labels[:80000], 0)
 
-y_train = np.array(g_label_array[:80000]) #np.array(g_label_array[:1473394])# np.array(g_label_array[:200])#
-y_valid = np.array(g_label_array[80000:]) #np.array(g_label_array[1473394:])# np.array(g_label_array[200: 400])#
+y_train = np.array(g_label_array[:60000]) #np.array(g_label_array[:1473394])# np.array(g_label_array[:200])#
+y_valid = np.array(g_label_array[60000:80000]) #np.array(g_label_array[1473394:])# np.array(g_label_array[200: 400])#
 
 
 g_embedding_matrix = make_embedding_matrix(g_num_words, g_idx_word)
