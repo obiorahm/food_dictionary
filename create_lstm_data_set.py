@@ -233,63 +233,6 @@ class My_Generator(Sequence):
 
 				
 
-def scramble_or_omit(line):
-	if (line is None):
-		return
-	stripped_line = line.strip()
-	if (len(stripped_line) == 0):
-		return
-	split_word = stripped_line.split(" ")
-	if (len(split_word) == 0):
-		return
-	scambled_word = ""
-	letters = string.ascii_lowercase
-	print ("length of split word: " + str(len(split_word)) )	
-
-	while (scambled_word == "" or scambled_word == " "):
-		end = len(split_word) - 1
-		n = random.randint(0,end);
-		print("value of n: " + str(n))
-		word_to_scramble = split_word[n]
-
-		start = random.randint(0,len(word_to_scramble))
-		stop = random.randint(start, len(word_to_scramble))
-
-		substring = word_to_scramble[start:stop]
-
-		random_substring = ''.join(random.choice(letters) for i in range(len(substring)))
-
-		scambled_word = word_to_scramble.replace(substring, random_substring)
-
-		split_word[n] = scambled_word
-
-	return word_to_scramble, scambled_word, " ".join(word for word in split_word)
-
-
-spell = SpellChecker(distance=2)
-spell.word_frequency.load_text_file('combine_dictionary.txt')
-
-def auto_correct (word):
-	 x = spell.candidates(word)
-	 return x
-
-'''
-WORD_POS = 0
-SCRAMBLED_WORD_POS = 1
-LINE_POS = 2
-
-
-line = raw_input("enter a string: ")
-print(type(line))
-if (line is not None):
-	print(type (scramble_or_omit(line)))
-	result = scramble_or_omit(line)
-	if result is not None:
-		print(result[WORD_POS], result[SCRAMBLED_WORD_POS], result[LINE_POS])
-		candidate_words = auto_correct(result[SCRAMBLED_WORD_POS])
-		print(candidate_words)
-
-		'''
 
 g_sequences, g_tokenizer = get_list_of_strings()
 

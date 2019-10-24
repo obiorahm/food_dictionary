@@ -7,8 +7,8 @@
 #SBATCH --ntasks-per-node=4     # Number of Cores (Processors)
 #SBATCH --mail-user=mmachiobiorah2015@u.northwestern.edu  # Designate email address for job communications
 #SBATCH --mail-type=BEGIN     # Events options are job BEGIN, END, NONE, FAIL, REQUEUE
-#SBATCH --output=/projects/p30991/list_of_foods/    # Path for output must already exist
-#SBATCH --error=/projects/p30991/list_of_foods/    # Path for errors must already exist
+#SBATCH --output=/projects/p30991/list_of_foods/output.out    # Path for output must already exist
+#SBATCH --error=/projects/p30991/list_of_foods/error.out    # Path for errors must already exist
 #SBATCH --job-name="lstm"       # Name of job
 
 # unload any modules that carried over from your command line session
